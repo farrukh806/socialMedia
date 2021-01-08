@@ -1,0 +1,62 @@
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %> 
+<%- include('../partials/messages') %> 
+
+
+
+<% if(postData.following.length === 0) {%>
+  <div style="position:absolute;display: flex; justify-content: center;align-items: center;margin-top: 15%;">
+    <h1>No posts to show since you are not following any other user.</h1>
+  </div>
+  <% } %>  
+<% if(postData.following.length > 0){ %>  
+  <div class="container">
+    <div class="feeds">
+      <% postData.following.slice().reverse().forEach(posts => { %>
+        <% posts.post.slice().reverse().forEach(followings => { %> 
+                <div class="ui card">
+                    <div class="content">
+                      <div class="right floated meta"><%= followings.createdAt.toDateString()%></div>
+                      <img class="ui avatar image" src="<%= posts.image%>"> <a id="username" href="/user/<%=followings.author._id%>"><%= posts.displayName %></a> 
+                    </div>
+                    <% if(followings.image){%> 
+                      <div class="image">
+                        <img src="<%= followings.images%>">
+                      </div>
+                    <% } %> 
+                    <% if(followings.description){ %> 
+                      <div class="content">
+                        <a href="/post/<%= followings._id %>" class="black-text"><h3><%= followings.description.slice(0, 21) %></h3></a>
+                        <% if(followings.description.length > 20){ %> 
+                        <a href="/post/<%= followings._id %>">...Read more</a>
+                        <% } %> 
+                      </div>
+                    <% } %> 
+                    <div class="content">
+                      <span class="right floated"> 
+                          <% if(followings.likes.indexOf(currentUser._id) === -1) {%> 
+                              <i class="heart outline like icon handleEvent" id="<%=followings._id%>"><span><%=followings.likes.length%></span></i>
+                          <% } else{%> 
+                            <i class="heart outline like icon red handleEvent" id="<%=followings._id%>"><span><%=followings.likes.length%></span></i>
+                          <% } %> 
+                      </span>
+                      <a href="/post/<%= followings._id%>"><i class="comment icon"></i><%= followings.comments.length %> Comments</a>
+                    </div>
+                    <div class="extra content">
+                      <div class="ui large transparent left icon input">
+                        <i class="heart outline icon"></i>
+                        <form action="/post/<%= followings._id%>/comment/new" method="POST" class="ui form">
+                          <input type="text" name="comment" placeholder="Add Comment..." autocomplete="off">
+                          <input type="submit" class="ui primary button" value="Submit">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <% }) %> 
+            <% }) %> 
+    </div>
+</div>
+<% } %>
+
+
+<%- include('../partials/footer') %> 

@@ -1,0 +1,81 @@
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %>
+<%- include('../partials/messages') %> 
+
+<% if(postData){ %> 
+    <div class="segment-new">
+      <div class="ui card">
+        <div class="new-card">
+          <img class="ui avatar image" src="<%= postData.author.image%>">
+          <a id="username-info" class="author" href="/user/<%= postData.author._id%>"><%= postData.author.displayName %></a>
+            <div class="right floated meta float-right right"><%= postData.createdAt.toDateString()%></div>
+            <% if(postData.image){ %> 
+              <img class="ui centered medium image" src="<%= postData.images%>">
+            <% } %> 
+            <% if(postData.description){%> 
+              <p id="info-description"><%= postData.description %></p>
+          <% } %> 
+          <div class="flex float-right">
+            <div class="info-like-button">
+              <div class="cursor float-right mr">
+                <% if(postData.likes.indexOf(currentUser._id) === -1) {%> 
+                  <i class="heart outline like icon handleEvent" id="<%=postData._id%>"><span><%=postData.likes.length%></span></i>
+              <% } else{%> 
+                  <i class="heart outline like icon red handleEvent" id="<%=postData._id%>"><span><%=postData.likes.length%></span></i>
+              <% } %> 
+              </div>
+            </div>
+    
+            <% if(postData.author._id.equals(currentUser._id)){ %> 
+            <div class="edit-button float-right" data-content="Edit">
+              <a href="/post/<%= postData._id %>/edit"><i class="edit outline icon"></i></a>
+            </div>
+            <form action="/post/<%= postData._id%>?_method=DELETE" method="POST" class="float-right post-delete-icon">
+              <div class="delete-button" data-content="Delete">
+                <button id="delete-button"> <i type="Submit" class="trash large red icon"></i></button>
+              </div>
+            </form>
+            <% } %> 
+          </div>
+      </div>
+        </div>
+  
+      <div class="info-form">
+          <form action="/post/<%= postData._id%>/comment/new" method="POST" class="ui form">
+              <input type="text" name="comment" placeholder="Add Comment..." autocomplete="off">
+              <input class="ui blue button float-right" type="submit" value="Submit">
+            </form>
+      </div>
+    </div>
+  
+      <div class="main-comments">
+          <% postData.comments.slice().reverse().forEach((comment) => {  %>
+              <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="<%= comment.commentAuthor.image%>">
+                    </a>
+                    <div class="content">
+                      <a class="author" href="/user/<%= comment.commentAuthor._id%>"><%= comment.commentAuthor.displayName %></a>
+                      <div class="metadata">
+                        <div class="date"><%= comment.createdAt.toDateString()%></div>
+                      </div>
+                      <div class="text">
+                       <%= comment.text %>
+                      </div>
+                      <% if(comment.commentAuthor._id.equals(currentUser._id)){ %> 
+                        <div class="actions">
+                          <form action="/post/<%= postData._id%>/comment/<%= comment._id %>?_method=DELETE" method="POST">
+                              <button id="delete-button">Delete</button>
+                          </form>
+                            <a href="/post/<%= postData._id%>/comment/<%= comment._id %>">Edit</a>
+                        </div>
+                        <%}%>
+                    </div>
+                  </div>
+                </div>
+          <%  }) %>
+      <% } %> 
+      </div>
+    
+<%- include('../partials/footer') %> 

@@ -1,0 +1,24 @@
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %>
+<%- include('../partials/messages') %> 
+
+
+    <div class="ui form container form-container">
+        <div class="customized-form">
+            <form action="/post/new" method="POST" class="ui form">
+              
+                <div>
+                    <textarea name="description" cols="80" rows="4"></textarea>
+                </div>
+                <div>
+                    <input type="file" name="file" class="filepond">
+                </div>
+                
+                <div class="field">
+                    <input type="submit" value="Submit" id="submitbtn" class="ui primary button">
+                </div>
+            </form>
+        </div>
+    </div>
+
+<%- include('../partials/footer') %> 

@@ -1,0 +1,82 @@
+<%- include('./partials/header') %> 
+<%- include('./partials/navbar') %> 
+<%- include('./partials/messages') %>
+
+
+<div class="profile" id="top">
+  <div class="ui card">
+      <div class="card">
+      <div class="image">
+        <img id="profile-page-img" src="<%= user.image %>">
+      </div>
+      <div class="content">
+        <h2 class="header"><%= user.displayName %></h2>
+        <div class="description">
+          <a href="#click">Number of Posts Uploaded <%= user.post.length%></a>
+        </div>
+        <!-- <div class="description">
+         Our best User
+        </div> -->
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+              Joined on <%= user.createdAt.toDateString()%>
+        </span>
+        <br>
+        <span>
+          <%let idx = user.followers.indexOf(currentUser._id)%>
+            <%if(idx+1 === 0){%>
+                <%if(!(currentUser._id.equals(user._id))){%>
+                 <a class="float-right" href="/user/<%=user._id%>/follow">Follow</a>
+                <% } %>
+            <% } else{%>
+                <a href="/user/<%=user._id%>/unfollow">Unfollow</a>
+              <% } %> 
+              <br>
+          <div class="float-right">
+            <i class="user icon"></i>
+            <%=user.followers.length%> Followers
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="click">
+    <div class="feeds">
+        <% user.post.slice().reverse().forEach(posts => {%>
+            <div class="ui card">
+                <div class="content">
+                    <div class="right floated meta"><%= posts.createdAt.toDateString()%></div>
+                    <img class="ui avatar image" src="<%=posts.author.image%>"> <a id="username" href="#top"><%= posts.author.displayName %></a> 
+                    <% if(posts.images){%> 
+                      <div class="image resize">
+                        <img src="<%= posts.images%>">
+                      </div>
+                    <% } %> 
+                    <% if(posts.description){ %> 
+                      <div class="content">
+                        <a href="/post/<%= posts._id %>" class="black-text"><h3><%= posts.description.slice(0, 21) %></h3></a>
+                        <% if(posts.description.length > 20){ %> 
+                        <a href="/post/<%= posts._id %>">...Read more</a>
+                        <% } %> 
+                      </div>
+                        <div class="content flex">
+                          <div class="profilePage-likeBtn">
+                            <% if(posts.likes.indexOf(currentUser._id) === -1) {%> 
+                              <i class="heart outline like icon handleEvent" id="<%=posts._id%>"><span><%=posts.likes.length%></span></i>
+                          <% } else{%> 
+                              <i class="heart outline like icon red handleEvent" id="<%=posts._id%>"><span><%=posts.likes.length%></span></i>
+                          <% } %> 
+                          </div>
+                          <a class="customized-comments" href="/post/<%= posts._id%>"><i class="comment icon"></i><%= posts.comments.length %> Comments</a>
+                        </div>
+                    <% } %> 
+                </div>
+            </div>
+        <%})%>
+    </div>
+</div>
+
+<%- include('./partials/footer') %> 

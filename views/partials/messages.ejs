@@ -1,0 +1,24 @@
+
+<%if(error && error.length > 0){%>
+    <div class="custom-message">
+      <div class="ui warning message">
+          <i class="close icon"></i>
+          <div class="header">
+            <%= error %> 
+          </div>
+        </div>
+    </div>
+<%}%>
+    
+<%if(success && success.length > 0){%>
+    <div class="custom-message">
+      <div class="ui success message">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= success %> 
+        </div>
+      </div>
+    </div>
+<%}%>
+    
+    

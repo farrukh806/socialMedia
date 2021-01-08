@@ -1,0 +1,21 @@
+<nav>
+  <div class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/post">Home</a></li>
+     <li><a href="/post/new">New Post</a></li>
+     <li>
+       <a href="/search/user">Search a user</a>
+     </li>
+     <li id="profile">
+       <img id="profile-image" src="<%= currentUser.image %> " alt="profile-img">
+        <a id="display-name" href="/user/<%= currentUser._id %>">
+          <%= currentUser.displayName %>
+        </a>
+      </li>
+     <li><a href="/logout">Logout</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap');
+
+* {
+	outline: none;
+	margin: 0;
+	padding: 0;
+}
+a:hover {
+	text-decoration: none;
+}
+form > input:focus {
+	outline: none;
+	border: none;
+}
+
+#profile_img {
+	border-radius: 50%;
+	margin-right: 8px;
+}
+
+.main {
+	background: #163e95;
+	background: -webkit-radial-gradient(top left, #163e95, #114957);
+	background: -moz-radial-gradient(top left, #163e95, #114957);
+	background: radial-gradient(to bottom right, #163e95, #114957);
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	color: #eee;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#tag_line {
+	font-size: 3em;
+}
+
+#tag_line span {
+	font-family: 'Raleway', sans-serif;
+	margin-right: 4px;
+	letter-spacing: 2px;
+}
+
+#slogan {
+	letter-spacing: 2px;
+	font-size: 24px;
+}
+
+.btns {
+	display: flex;
+}
+
+.btns a:first-child {
+	margin-right: 16px;
+	color: #ffff;
+}
+
+.ui.button {
+	font-size: 1.2rem;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.container > .feeds {
+	margin-left: 4%;
+}
+
+.container > .feeds:first-child {
+	margin-top: 5%;
+}
+
+.ui.card {
+	width: 60%;
+}
+
+#username {
+	font-weight: 700;
+	color: #000;
+}
+
+.ui.form textarea {
+	font-size: 24px;
+}
+
+.filepond--root .filepond--credits[style] {
+	display: none;
+}
+
+.container > .suggestions {
+	position: fixed;
+	display: flex;
+	width: 25%;
+	justify-content: center;
+	align-items: center;
+	margin-left: 75%;
+}
+
+.form-container {
+	height: 30%;
+}
+
+.customized-form {
+	position: absolute;
+	margin-top: 10%;
+}
+.ui.centered.medium.image {
+	width: 80%;
+	margin-bottom: 3%;
+	margin-top: 5%;
+}
+
+.ui.segment {
+	width: 70%;
+	margin-bottom: 2%;
+	margin-top: 0;
+}
+
+.segment-new {
+	position: absolute;
+	margin-top: 7%;
+	margin-left: 2%;
+	width: 80%;
+}
+
+.mr {
+	margin-right: 3%;
+}
+
+.main-comments {
+	position: absolute;
+	margin-top: 50%;
+	margin-left: 4%;
+	padding-bottom: 3%;
+}
+
+.info-form {
+	width: 50%;
+	height: 100px;
+	margin-left: 4%;
+}
+
+.info-form > input[type='submit'] {
+	width: 10%;
+	margin-top: 20px;
+}
+
+#username-info {
+	font-size: larger;
+	font-weight: bolder;
+	color: #000;
+}
+
+.float-right {
+	float: right;
+}
+
+#delete-button {
+	border: none;
+	cursor: pointer;
+	background: transparent;
+}
+
+.custom-message {
+	position: relative;
+	top: 10%;
+}
+
+.post-delete-icon {
+	position: relative;
+	top: -12px;
+	margin-right: 10px;
+}
+
+.edit-button {
+	position: relative;
+	top: -12px;
+	font-size: 21px;
+}
+cursor .filepond--root {
+	height: 10em;
+}
+
+.small-card {
+	max-height: 190px;
+	max-width: 100px;
+}
+
+.black-text {
+	color: black;
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.actions > * {
+	padding-left: 12px;
+}
+
+.resize > img {
+	width: 95%;
+	margin: 1rem;
+}
+
+.profile {
+	width: 60%;
+	display: flex;
+	justify-content: center;
+}
+
+#profile-page-img {
+	width: 100%;
+}
+
+#click {
+	margin-bottom: 3rem;
+}
+
+.info-like-button {
+	font-size: 20px;
+	margin-top: -9px;
+	margin-right: 7px;
+	margin-bottom: 7px;
+}
+.info-form > .ui.form > input:nth-child(2) {
+	margin-top: 10px;
+}
+.customized-comments {
+	margin-top: 3px;
+}
+
+.float-right {
+	text-align: right;
+}
+
+.red {
+	color: red;
+}
+
+.profilePage- {
+	margin-left: 4px;
+	margin-top: 3px;
+	margin-right: 10px;
+}
+
+.flex {
+	display: flex;
+}
+
+.cursor > i {
+	cursor: pointer;
+}
+
+#info-description {
+	font-size: larger;
+	margin-left: 3%;
+}
+
+.profile > .ui.card:first-child {
+	margin-top: 12%;
+	width: 40%;
+}
+.customized-comments {
+	margin-left: 20px;
+}
+
+.comments {
+	margin-left: 1%;
+	margin-bottom: 5%;
+}
+
+/* Navbar styling */
+
+#display-name {
+	color: white;
+}
+
+#profile-image {
+	border-radius: 50%;
+	width: 30%;
+}
+
+#profile {
+	display: flex;
+}
+
+#display-name {
+	margin: auto;
+}
+
+nav {
+	height: 10vh;
+	background: #5b78c7;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
+.nav-links {
+	display: flex;
+	list-style: none;
+	width: 50%;
+	height: 100%;
+	justify-content: space-around;
+	align-items: center;
+	margin-left: auto;
+}
+
+.nav-links li a {
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+	.line {
+		width: 30px;
+		height: 3px;
+		background: white;
+		margin: 5px;
+	}
+	nav {
+		position: fixed;
+	}
+
+	.hamburger {
+		position: absolute;
+		cursor: pointer;
+		right: 10%;
+		top: 50%;
+		transform: translate(-5%, -50%);
+		z-index: 2;
+	}
+
+	.nav-links {
+		background: #5b78c7;
+		height: 100vh;
+		width: 100%;
+		flex-direction: column;
+		clip-path: circle(100px at 90% -10%);
+		-webkit-clip-path: circle(100px at 90% -10%);
+		transition: all 1s ease-out;
+		pointer-events: none;
+	}
+	.nav-links.open {
+		clip-path: circle(800px at 80% -10%);
+		-webkit-clip-path: circle(800px at 80% -10%);
+		pointer-events: all;
+	}
+	.nav-links li {
+		opacity: 0;
+	}
+	.nav-links li a {
+		font-size: 22px;
+	}
+	.nav-links li:nth-child(1) {
+		transition: all 0.5s ease 0.2s;
+	}
+	.nav-links li:nth-child(2) {
+		transition: all 0.5s ease 0.4s;
+	}
+	.nav-links li:nth-child(3) {
+		transition: all 0.5s ease 0.6s;
+	}
+	.nav-links li:nth-child(4) {
+		transition: all 0.5s ease 0.8s;
+	}
+	.nav-links li:nth-child(5) {
+		transition: all 0.5s ease 1s;
+	}
+
+	li.fade {
+		opacity: 1;
+	}
+
+	.profile > .ui.card:first-child {
+		margin-top: 18%;
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.main > #tag_line {
+		margin-left: 6%;
+	}
+	.main > .btns {
+		flex-direction: column;
+	}
+	.btns a:first-child {
+		margin-right: 0;
+		margin-bottom: 12px;
+	}
+	#slogan {
+		letter-spacing: 0;
+	}
+	.profile > .ui.card:first-child {
+		margin-top: 38%;
+		width: 100%;
+		margin-left: 24%;
+		margin-right: -40%;
+	}
+	.ui.card {
+		width: 95%;
+	}
+	.segment-new {
+		position: absolute;
+		margin-top: 30%;
+		margin-left: 12%;
+	}
+	.customized-comments {
+		margin-left: 8px;
+	}
+	.profilePage-likeBtn {
+		margin-top: 4px;
+	}
+	.customized-form {
+		position: absolute;
+		margin-top: 35%;
+		width: 80%;
+	}
+	.profiles > .ui.card:first-child {
+		position: absolute;
+		margin-top: 25%;
+		width: 50%;
+	}
+	.info-like-button {
+		font-size: 20px;
+		margin-top: -9px;
+		margin-right: 7px;
+		margin-bottom: 7px;
+	}
+
+	.info-form > input[type='text'] {
+		width: 90%;
+	}
+	.main-comments {
+		margin-top: 550px;
+	}
+	.message {
+		width: 90%;
+	}
+	.info-form {
+		margin-right: 0;
+		width: 90%;
+	}
+	.info-form > .ui.form > input:nth-child(2) {
+		margin-top: 8px;
+	}
+	.ui.form .field {
+		position: absolute;
+		margin-top: 19%;
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+	#edit-comment {
+		position: absolute;
+		margin-top: 19%;
+	}
+	.feeds #search-results {
+		position: absolute;
+		margin-top: 15%;
+	}
+	.ui.card:first-child{
+		margin-top: 18%;
+	}
+}

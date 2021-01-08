@@ -1,0 +1,27 @@
+<%- include('./partials/header') %> 
+<%- include('./partials/navbar') %> 
+<%- include('./partials/messages') %> 
+
+<% if(users){ %> 
+    <div class="container">
+        <div class="feeds">
+            <h4 id="search-results">Showing <%=users.length %> results related to <em><%=searchedUser%></em></h4>
+            <div class="profiles">
+               <% users.forEach(user => {%>
+                <div class="ui card">
+                    <div class="ui avatar">
+                        <img src="<%=user.image%>" alt="profleImg">
+                        <h3><a href="/user/<%=user._id%>"><%=user.displayName%></a></h3>
+                    </div>
+                    <% if(currentUser.following.indexOf(user._id) === -1){ %> 
+                        <a class="float-right" href="/user/<%=user._id%>/follow">Follow</a>
+                    <% } else{ %>
+                        <a class="float-right" href="/user/<%=user._id%>/unfollow">Unfollow</a>
+                    <% } %>  
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+<% } %>
+<%- include('./partials/footer') %> 

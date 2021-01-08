@@ -1,0 +1,22 @@
+<%- include('../partials/header') %> 
+<%- include('../partials/navbar') %>
+<%- include('../partials/messages') %>
+
+
+<form action="/post/<%= editData._id%>?_method=PUT"  method="POST" >   
+<div class="ui form">
+        <label>Text</label>
+        <br>
+        <br>
+        <div class="field">
+            <% if(editData.description){ %> 
+              <textarea type="text" name="post[description]"><%= editData.description, editData._id %></textarea>
+            <% } else{%>
+              <textarea type="text" name="post[description]" placeholder="You can add your text here.." rows="4" columns="10"></textarea>
+            <% } %>
+              <button class="ui primary button" type="submit">Update</button>
+        </div>
+    </div>
+</form>
+
+<%- include('../partials/footer') %>

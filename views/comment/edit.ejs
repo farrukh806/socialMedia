@@ -1,0 +1,22 @@
+<%- include ('../partials/header') %> 
+<%- include ('../partials/navbar') %> 
+<%- include ('../partials/messages') %> 
+
+<div class="comments">
+  <form action="/post/<%= postId %>/comment/<%= comment._id %>?_method=PUT"  method="POST" >   
+      <div class="ui form">
+              <h1 id="edit-comment">Edit comment </h1>
+              <br>
+              <br>
+              <div class="field">
+                  <% if(comment.text){ %> 
+                    <textarea type="text" name="comment[text]"><%= comment.text %></textarea>
+                  <% } %>
+                    <button class="ui primary button" type="submit">Update</button>
+              </div>
+          </div>
+  </form>
+      
+</div>
+
+<%- include ('../partials/footer') %> 
