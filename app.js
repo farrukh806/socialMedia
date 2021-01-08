@@ -47,7 +47,7 @@ passport.use(
 		{
 			clientID: clientID,
 			clientSecret: clientSecret,
-			callbackURL: 'https://socialapp4.herokuapp.com/auth/google/callback',
+			callbackURL: '/auth/google/callback',
 		},
 		async function (accessToken, refreshToken, profile, done) {
 			const newUser = {
