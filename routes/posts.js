@@ -171,6 +171,10 @@ router.get('/post/:postId/like', isLoggedIn, async (req, res) => {
 router.delete('/post/:postId', postOwnership, async (req, res) => {
 	let deletedPost = await Post.findByIdAndDelete(req.params.postId);
 	if (deletedPost) {
+		let user = await User.findById(req.user._id);
+		let postIndex = await user.post.indexOf(req.params.postId);
+		let postRemovedFromArray = await user.post.splice(postIndex, 1);
+		let savePostArray = await user.save();
 		req.flash('success', 'Post deleted successfully.');
 		res.redirect(`/post`);
 	} else {
