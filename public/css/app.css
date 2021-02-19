@@ -78,7 +78,9 @@ form > input:focus {
 .ui.card {
 	width: 60%;
 }
-
+.ui.card > img {
+	max-height:430px;
+}
 #username {
 	font-weight: 700;
 	color: #000;
